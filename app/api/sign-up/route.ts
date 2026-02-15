@@ -32,7 +32,7 @@ export async function POST(req: Request) {
             email,
         });
 
-const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
+        const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
 
         if (existingUserWithemail) {
             //if email verify or if not
@@ -50,7 +50,7 @@ const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
                 existingUserWithemail.password = hashedPassword
                 existingUserWithemail.verifyCode = verifyCode
                 existingUserWithemail.username = username
-                existingUserWithemail.verifyCodeExpiry = new Date(Date.now() + 60 * 60  * 1000) //new is required because we want a Date object, not a string.
+                existingUserWithemail.verifyCodeExpiry = new Date(Date.now() + 60 * 60 * 1000) //new is required because we want a Date object, not a string.
                 await existingUserWithemail.save()
 
 
@@ -110,10 +110,10 @@ const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
         //         status: 500
         //     }
         // )
-       return Response.json(
-  { success: false, message: "Error registering user" },
-  { status: 500 }
-);
+        return Response.json(
+            { success: false, message: "Error registering user" },
+            { status: 500 }
+        );
 
     }
 }
