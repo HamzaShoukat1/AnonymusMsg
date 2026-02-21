@@ -19,7 +19,7 @@ export async function POST(request: Request) {
         };
 
         //is user accepting the message
-        if (!user.isAcceptMessage) {
+        if (!user.isAcceptingMessage) {
             return Response.json(
                 {
                     success: false,

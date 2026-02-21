@@ -9,7 +9,7 @@ export const emailValidation = z.string().email({
     message: "invalid email address"})
 export const PasswordValidation = z.string().min(6, {message: "password must be at least 6 character"})
 
-export const SignupSchem = z.object({
+export const SignupSchema = z.object({
     username: usernameValidation,
     email: emailValidation,
     password: PasswordValidation,

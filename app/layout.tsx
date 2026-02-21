@@ -1,20 +1,20 @@
 // app/layout.tsx
+import { Toaster } from "@/components/ui/sonner"
 import AuthProvider from "./Context/AuthProvider";
-import "./globals.css";
-
+import "./globals.css"
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <AuthProvider>
-        <body>
-          {children}
-        </body>
-      </AuthProvider>
-
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body>
+                <AuthProvider>
+                    {children}
+                    <Toaster />
+                </AuthProvider>
+            </body>
+        </html>
+    );
 }

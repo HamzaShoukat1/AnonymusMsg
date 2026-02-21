@@ -2,7 +2,7 @@ import { Message } from "../model/User.model"
 export interface ApiResponse {
     success: boolean,
     message:string, //"Verification email sent successfully"
-    isAcceptingMessages?: boolean
+    isAcceptMessages: boolean
     messages?: Array<Message>
     status?:number
 }

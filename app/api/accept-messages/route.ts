@@ -35,7 +35,7 @@ export async function POST(request: Request) {
             userId,
             {
                 $set: {
-                    isAcceptMessage: acceptMessages
+                    isAcceptingMessage: acceptMessages
                 },
             },
 
@@ -114,7 +114,7 @@ export async function GET(_request: Request) {
             {
                 success: true,
                 message: "user found",
-                isAcceptMessage: foundUser.isAcceptMessage
+                isAcceptMessages: foundUser.isAcceptingMessage
 
             },
             { status: 200 }

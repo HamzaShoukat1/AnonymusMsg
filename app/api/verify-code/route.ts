@@ -1,11 +1,10 @@
 import { dbConnect } from "@/app/lib/dbConnect";
 import { UserModel } from "@/app/model/User.model";
-import z from "zod"
+import * as z from "zod"
 import { usernameValidation } from "@/app/schemas/SignupSchema";
-import { verifySchema } from "@/app/schemas/verifySchema";
 
 const verifyCodeSchema = z.object({
-    code: verifySchema,
+    code: z.string().min(6),
     username: usernameValidation
 
 })

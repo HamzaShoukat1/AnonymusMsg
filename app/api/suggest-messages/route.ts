@@ -21,14 +21,16 @@ export async function POST(_req: Request) {
         // Robust extraction
         const text = response.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
 
-        const questions = text.split("||").map(q => q.trim())
+        // const questions = text.split("||").map(q => q.trim())
 
         // If still empty, fallback to raw JSON for debugging
         if (!text) {
             console.log("Raw response from Gemini:", JSON.stringify(response, null, 2));
         }
 
-        return NextResponse.json({ questions });
+return new Response(text, {
+  headers: { "Content-Type": "text/plain; charset=utf-8" },
+});
     } catch (error: any) {
         console.error("Gemini error:", error);
         return NextResponse.json(
