@@ -24,10 +24,18 @@ function Navbar() {
                         </Button>
                     </>
                 ) : (
-                    <Link href="/sign-in">
-                        <Button className="w-full md:w-auto bg-slate-100 cursor-pointer hover:bg-white text-black">Login</Button>
+                    <>
+                   <div className='gap-2 flex '>
+                     <Link href="/sign-in">
+                        <Button className="  bg-slate-100 cursor-pointer hover:bg-white text-black">Login</Button>
                     </Link>
+                     <Link href="/sign-up">
+                        <Button className=" bg-slate-100 cursor-pointer hover:bg-white text-black">Sig up</Button>
+                    </Link>
+                   </div>
+                    </>
                 )}
+                
             </div>
         </nav>
     );

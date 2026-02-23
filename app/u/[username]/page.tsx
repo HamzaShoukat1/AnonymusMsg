@@ -133,20 +133,20 @@ export default function SendMessage() {
       </Form>
 
       <div className="space-y-4 my-8">
-    <div className="space-y-2">
-  <Button
-    onClick={fetchSuggestedMessages}
-    className="my-4 cursor-pointer"
-    disabled={isSuggestLoading}
-  >
-    {isSuggestLoading && (
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-    )}
-    {isSuggestLoading ? "Generating..." : "Suggest Messages"}
-  </Button>
+        <div className="space-y-2">
+          <Button
+            onClick={fetchSuggestedMessages}
+            className="my-4 cursor-pointer"
+            disabled={isSuggestLoading}
+          >
+            {isSuggestLoading && (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            )}
+            {isSuggestLoading ? "Generating..." : "Suggest Messages"}
+          </Button>
 
-  <p>Click on any message below to select it.</p>
-</div>
+          <p>Click on any message below to select it.</p>
+        </div>
 
         <Card>
           <CardHeader>
@@ -163,7 +163,7 @@ export default function SendMessage() {
                   className="mb-2"
                   onClick={() => handleMessageClick(message)}
                 >
-                  {message}
+                  {isSuggestLoading ? (<Loader2 className='animate-spin w-4 h-4' />) : (message)}
                 </Button>
               ))
             )}
