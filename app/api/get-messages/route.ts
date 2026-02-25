@@ -36,7 +36,7 @@ export async function GET(_req: Request) {
 
         ])
 
-        if (!user || user.length === 0) {
+        if (!user) {
 
             return Response.json(
                 {
@@ -61,13 +61,6 @@ export async function GET(_req: Request) {
         console.log("error found messages", error)
         console.log("error found messages", error)
 
-        return Response.json(
-            {
-                success: false,
-                message: "Error fetching messages"
-            },
-            { status: 500 }
-        )
     }
 
 

@@ -30,7 +30,7 @@ function Navbar() {
                         <Button className="  bg-slate-100 cursor-pointer hover:bg-white text-black">Login</Button>
                     </Link>
                      <Link href="/sign-up">
-                        <Button className=" bg-slate-100 cursor-pointer hover:bg-white text-black">Sig up</Button>
+                        <Button className=" bg-slate-100 cursor-pointer hover:bg-white text-black">Sign up</Button>
                     </Link>
                    </div>
                     </>

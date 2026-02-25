@@ -17,6 +17,7 @@ import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
+import { CopyField } from "@/app/hooks/HandleCopy"
 export default function page() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setisLoading] = useState(false)
@@ -40,7 +41,7 @@ export default function page() {
     setisSwitchLoading(true)
     try {
       const res = await axios.get<ApiResponse>('/api/accept-messages')
-      setValue("acceptMessaged", res.data.isAcceptMessages)
+      setValue("acceptMessaged", res.data.isAcceptMessages ?? false )
 
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
@@ -72,7 +73,7 @@ export default function page() {
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
 
-      toastBlack("Error", axiosError.response?.data.message || "failed to fetch messages")
+      // toastBlack("Error", axiosError.response?.data.message || "failed to fetch messages")
 
 
 
@@ -126,10 +127,10 @@ export default function page() {
   const profileUrl = `${baseUrl}/u/${username}`
 
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(profileUrl)
-    toast("Url copied Successfully")
-  }
+  // const copyToClipboard = () => {
+  //   navigator.clipboard.writeText(profileUrl)
+  //   toast("Url copied Successfully")
+  // }
 
 
 
@@ -160,7 +161,8 @@ export default function page() {
             disabled
             className="input input-bordered w-full p-2 mr-2"
           />
-          <Button className="cursor-pointer" onClick={copyToClipboard}>Copy</Button>
+        <CopyField  value={profileUrl} hideValue />
+        
         </div>
       </div>
 

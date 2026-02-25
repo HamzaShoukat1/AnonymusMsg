@@ -19,6 +19,9 @@ export default function VerifyAccount() {
 
     const form = useForm<z.infer<typeof verifySchema>>({
         resolver: zodResolver(verifySchema),
+        defaultValues: {
+            code:""
+        }
     })
 
     const onSubmit = async (data: z.infer<typeof verifySchema>) => {
@@ -36,7 +39,7 @@ export default function VerifyAccount() {
 
             })
 
-            router.replace('/Sign-in')
+            router.replace('/sign-in')
 
         } catch (error) {
             console.error("Error in verifycode of user", error)
